@@ -1,0 +1,56 @@
+<%- model_class = Cause -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:user_id) %></th>
+      <th><%= model_class.human_attribute_name(:text) %></th>
+      <th><%= model_class.human_attribute_name(:latitude) %></th>
+      <th><%= model_class.human_attribute_name(:longitude) %></th>
+      <th><%= model_class.human_attribute_name(:cateory_id) %></th>
+      <th><%= model_class.human_attribute_name(:support) %></th>
+      <th><%= model_class.human_attribute_name(:status) %></th>
+      <th><%= model_class.human_attribute_name(:start_date) %></th>
+      <th><%= model_class.human_attribute_name(:end_date) %></th>
+      <th><%= model_class.human_attribute_name(:address) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @causes.each do |cause| %>
+      <tr>
+        <td><%= link_to cause.id, cause_path(cause) %></td>
+        <td><%= cause.user_id %></td>
+        <td><%= cause.text %></td>
+        <td><%= cause.latitude %></td>
+        <td><%= cause.longitude %></td>
+        <td><%= cause.cateory_id %></td>
+        <td><%= cause.support %></td>
+        <td><%= cause.status %></td>
+        <td><%= cause.start_date %></td>
+        <td><%= cause.end_date %></td>
+        <td><%= cause.address %></td>
+        <td><%=l cause.created_at %></td>
+        <td>
+          <%= link_to t('.show', :default => t("helpers.links.show")),
+                      cause_path(cause), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_cause_path(cause), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      cause_path(cause),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_cause_path,
+            :class => 'btn btn-primary' %>

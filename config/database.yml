@@ -1,0 +1,25 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+  password:
+  host: db_mn
+
+development:
+  <<: *default
+  database: cidadeMN_development
+
+
+test:
+  <<: *default
+  database: cidadeMN_test
+
+production:
+  <<: *default
+  database: cidadeMN_production
+  username: cidadeMN
+  password: <%= ENV['CIDADEMN_DATABASE_PASSWORD'] %>
+
+
