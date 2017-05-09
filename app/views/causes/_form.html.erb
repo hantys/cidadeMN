@@ -1,24 +1,14 @@
 <%= simple_form_for @cause, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :user_id %>
-  <%= error_span(@cause[:user_id]) %>
   <%= f.input :text %>
-  <%= error_span(@cause[:text]) %>
   <%= f.input :latitude %>
-  <%= error_span(@cause[:latitude]) %>
   <%= f.input :longitude %>
-  <%= error_span(@cause[:longitude]) %>
   <%= f.input :cateory_id %>
-  <%= error_span(@cause[:cateory_id]) %>
   <%= f.input :support %>
-  <%= error_span(@cause[:support]) %>
   <%= f.input :status %>
-  <%= error_span(@cause[:status]) %>
-  <%= f.input :start_date %>
-  <%= error_span(@cause[:start_date]) %>
-  <%= f.input :end_date %>
-  <%= error_span(@cause[:end_date]) %>
+  <%= f.input :start_date, as: :date, html5: true %>
+  <%= f.input :end_date, as: :date, html5: true %>
   <%= f.input :address %>
-  <%= error_span(@cause[:address]) %>
 
   <%= f.button :submit, :class => 'btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

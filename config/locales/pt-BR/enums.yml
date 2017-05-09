@@ -1,0 +1,90 @@
+pt-BR:
+  enums:
+    product:
+      condition:
+        new_product: 'Novo'
+        used_product: 'Desapego'
+        handmade: 'artesanal'
+      shipping_type:
+        hand_delivery: 'Entrega em mãos'
+        free: 'Frete grátis'
+        paid_by_buyer: 'Pago pelo comprador'
+      checkout_type:
+        short: "Estou me desfazendo"
+        long: "Eu que fabrico"
+      amount_type:
+        single: "Tenho um só"
+        multiple: "Tenho vários"
+      gender:
+        boy: 'Menino'
+        girl: 'Menina'
+        unisex: 'Menino e menina'
+        moms: 'Mamães'
+      status:
+        in_review: 'Em análise'
+        disabled: 'Desabilitado'
+        active: 'Ativo'
+        inactive: 'Inativo'
+
+    coupon:
+      status:
+        active: 'Ativo'
+        inactive: 'Inativo'
+        deleted: 'Excluido'
+
+    user:
+      gender:
+        male: 'Masculino'
+        female: 'Feminino'
+
+    reason:
+      type_object:
+        type_product: 'Produto'
+        type_store: 'Loja'
+
+    issue:
+      subject:
+        receiver: 'Tudo ok, recomendo'
+        cancelled: 'Desisti da compra'
+        claim: 'Tive um problema'
+      status:
+        pending: 'Masculino'
+        problem: 'Feminino'
+        finalized: 'Feminino'
+
+    message:
+      status:
+        pending: 'A revisar'
+        viewed: 'Visualisada'
+        deleted: 'Removida'
+        approved: 'Aprovada'
+        denied: 'Negada'
+
+    order:
+      status:
+        CREATED: 'Criado'
+        IN_ANALYSIS: 'Em análise'
+        WAITING: 'Aguardando pagamento'
+        AUTHORIZED: 'Aprovada'
+        CANCELLED: 'Cancelada'
+        shipped: 'Em trânsito'
+        delivered: 'Entregue'
+        finalized: 'Finalizado'
+      payment_type:
+        billet: Boleto
+        credit_card: Cartão
+
+    faq:
+      category:
+        buyer: Para comprar
+        seller: Para vender
+        tip: Dicas
+
+  models:
+    product:
+      image_types:
+        main_image: 'Principal'
+        front_image: 'Frente'
+        back_image: 'Costas'
+        tag_image: 'Etiqueta'
+        detail_image: 'Detalhe'

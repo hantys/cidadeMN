@@ -1,8 +1,6 @@
 <%= simple_form_for @category, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :name %>
-  <%= error_span(@category[:name]) %>
   <%= f.input :icon %>
-  <%= error_span(@category[:icon]) %>
 
   <%= f.button :submit, :class => 'btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
