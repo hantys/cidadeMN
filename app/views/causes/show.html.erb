@@ -5,15 +5,15 @@
 
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
-  <dd><%= @cause.user_id %></dd>
+  <dd><%= @cause.user.try(:name) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:text) %>:</strong></dt>
   <dd><%= @cause.text %></dd>
   <dt><strong><%= model_class.human_attribute_name(:latitude) %>:</strong></dt>
   <dd><%= @cause.latitude %></dd>
   <dt><strong><%= model_class.human_attribute_name(:longitude) %>:</strong></dt>
   <dd><%= @cause.longitude %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:cateory_id) %>:</strong></dt>
-  <dd><%= @cause.cateory_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:category_id) %>:</strong></dt>
+  <dd><%= image_tag @cause.category.try(:icon) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:support) %>:</strong></dt>
   <dd><%= @cause.support %></dd>
   <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>

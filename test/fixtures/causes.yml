@@ -5,7 +5,7 @@ one:
   text: MyText
   latitude: 1.5
   longitude: 1.5
-  cateory_id: 1
+  category_id: 1
   support: false
   status: 1
   start_date: 2017-05-08
@@ -17,7 +17,7 @@ two:
   text: MyText
   latitude: 1.5
   longitude: 1.5
-  cateory_id: 1
+  category_id: 1
   support: false
   status: 1
   start_date: 2017-05-08

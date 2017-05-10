@@ -17,7 +17,7 @@
       <tr>
         <td><%= link_to category.id, category_path(category) %></td>
         <td><%= category.name %></td>
-        <td><%= category.icon %></td>
+        <td><%= image_tag category.try(:icon) %></td>
         <td><%=l category.created_at %></td>
         <td>
           <%= link_to t('.show', :default => t("helpers.links.show")),

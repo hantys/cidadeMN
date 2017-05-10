@@ -7,15 +7,10 @@
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:user_id) %></th>
-      <th><%= model_class.human_attribute_name(:text) %></th>
       <th><%= model_class.human_attribute_name(:latitude) %></th>
       <th><%= model_class.human_attribute_name(:longitude) %></th>
-      <th><%= model_class.human_attribute_name(:cateory_id) %></th>
+      <th><%= model_class.human_attribute_name(:category_id) %></th>
       <th><%= model_class.human_attribute_name(:support) %></th>
-      <th><%= model_class.human_attribute_name(:status) %></th>
-      <th><%= model_class.human_attribute_name(:start_date) %></th>
-      <th><%= model_class.human_attribute_name(:end_date) %></th>
-      <th><%= model_class.human_attribute_name(:address) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -24,16 +19,11 @@
     <% @causes.each do |cause| %>
       <tr>
         <td><%= link_to cause.id, cause_path(cause) %></td>
-        <td><%= cause.user_id %></td>
-        <td><%= cause.text %></td>
+        <td><%= cause.user.try(:name) %></td>
         <td><%= cause.latitude %></td>
         <td><%= cause.longitude %></td>
-        <td><%= cause.cateory_id %></td>
+        <td><%= image_tag cause.category.try(:icon) %></td>
         <td><%= cause.support %></td>
-        <td><%= cause.status %></td>
-        <td><%= cause.start_date %></td>
-        <td><%= cause.end_date %></td>
-        <td><%= cause.address %></td>
         <td><%=l cause.created_at %></td>
         <td>
           <%= link_to t('.show', :default => t("helpers.links.show")),

@@ -4,7 +4,7 @@ class CausesController < ApplicationController
   # GET /causes
   # GET /causes.json
   def index
-    @causes = Cause.all
+    @causes = Cause.limit(30)
   end
 
   # GET /causes/1
@@ -69,6 +69,6 @@ class CausesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cause_params
-      params.require(:cause).permit(:user_id, :text, :latitude, :longitude, :cateory_id, :support, :status, :start_date, :end_date, :address)
+      params.require(:cause).permit(:user_id, :text, :latitude, :longitude, :category_id, :support, :status, :start_date, :end_date, :address)
     end
 end

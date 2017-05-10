@@ -2,6 +2,11 @@ map = undefined
 myOptions = undefined
 latlong = undefined
 infoWindow = undefined
+markers = []
+categories = []
+causaIds = []
+select_cat = 0
+panorama = undefined
 
 @initMap = ->
   options_map()
@@ -55,7 +60,7 @@ infoWindow = undefined
         lat: position.coords.latitude
         lng: position.coords.longitude
       infoWindow.setPosition pos
-      infoWindow.setContent 'Localizaçao encontrada.'
+      infoWindow.setContent 'Você está aqui.'
       map.setCenter pos
 
     ), ->
@@ -70,3 +75,8 @@ infoWindow = undefined
   infoWindow.setContent if browserHasGeolocation then 'Erro: O servico de Geolocation falhou.' else 'Erro: Seu navegador não tem suporte para geolocation.'
 
 jQuery ->
+  console.log categories
+  $.get "/categories.json", {}, (date) ->
+    for c in date
+      categories.push c
+      console.log categories

@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 20170508143451) do
     t.text "text"
     t.float "latitude"
     t.float "longitude"
-    t.integer "cateory_id"
-    t.boolean "support"
+    t.integer "category_id"
+    t.integer "support", default: 0
     t.integer "status"
     t.date "start_date"
     t.date "end_date"

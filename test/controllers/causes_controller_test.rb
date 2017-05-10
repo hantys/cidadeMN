@@ -17,7 +17,7 @@ class CausesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create cause" do
     assert_difference('Cause.count') do
-      post causes_url, params: { cause: { address: @cause.address, cateory_id: @cause.cateory_id, end_date: @cause.end_date, latitude: @cause.latitude, longitude: @cause.longitude, start_date: @cause.start_date, status: @cause.status, support: @cause.support, text: @cause.text, user_id: @cause.user_id } }
+      post causes_url, params: { cause: { address: @cause.address, category_id: @cause.category_id, end_date: @cause.end_date, latitude: @cause.latitude, longitude: @cause.longitude, start_date: @cause.start_date, status: @cause.status, support: @cause.support, text: @cause.text, user_id: @cause.user_id } }
     end
 
     assert_redirected_to cause_url(Cause.last)
@@ -34,7 +34,7 @@ class CausesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update cause" do
-    patch cause_url(@cause), params: { cause: { address: @cause.address, cateory_id: @cause.cateory_id, end_date: @cause.end_date, latitude: @cause.latitude, longitude: @cause.longitude, start_date: @cause.start_date, status: @cause.status, support: @cause.support, text: @cause.text, user_id: @cause.user_id } }
+    patch cause_url(@cause), params: { cause: { address: @cause.address, category_id: @cause.category_id, end_date: @cause.end_date, latitude: @cause.latitude, longitude: @cause.longitude, start_date: @cause.start_date, status: @cause.status, support: @cause.support, text: @cause.text, user_id: @cause.user_id } }
     assert_redirected_to cause_url(@cause)
   end
 
