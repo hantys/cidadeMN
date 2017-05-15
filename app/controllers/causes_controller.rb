@@ -1,10 +1,15 @@
 class CausesController < ApplicationController
-  before_action :set_cause, only: [:show, :edit, :update, :destroy]
+  before_action :set_cause, only: [:show, :show_cause, :edit, :update, :destroy]
 
   # GET /causes
   # GET /causes.json
   def index
-    @causes = Cause.limit(30)
+    @causes = Cause.all
+
+  end
+
+  def show_cause
+    render :layout => false and return
   end
 
   # GET /causes/1

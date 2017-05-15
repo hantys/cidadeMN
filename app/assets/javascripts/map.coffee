@@ -15,7 +15,77 @@ panorama = undefined
   panorama = map.getStreetView()
   infoWindow = new (google.maps.InfoWindow)(map: map)
   geolocation_service()
+  povoa_categoria()
 
+@povoa_categoria = ->
+  centro = map.getCenter()
+  $.get "/causes.json", {lat: centro.lat(), lng: centro.lng(), category: select_cat}, (data) ->
+    i = -1
+    $(data).each (index, causa) ->
+      local = new google.maps.LatLng(parseFloat(causa.latitude), parseFloat(causa.longitude))
+      povoa_map causa, local
+
+    panorama.setPov (
+      heading: 265
+      pitch: 0
+    )
+
+
+@povoa_map= (causa, local) ->
+  img = recursive_category causa.category_id
+  icon = new google.maps.MarkerImage img
+  marker = placeMarker local
+
+  marker.addListener('click' , openCauseWindow(marker, causa.id))
+  marker.setIcon icon
+  causaIds.push(causa.id)
+  markers.push(marker)
+
+
+@placeMarker = (location) ->
+  #marker.setMap null
+  marker = new google.maps.Marker(
+    # animation: google.maps.Animation.DROP
+    position: location
+    map: map
+  )
+
+
+@openCauseWindow = (marker, causa) ->
+  return ( ->
+    $("#modal-css").html "Carregando..."
+    $('#myModal').modal('toggle')
+    jqxhr = $.get("/show_causa/#{causa}", (data) ->
+      $(".render").html("")
+      $(".render").html data
+
+      open_next(marker)
+    ).done(->
+    ).fail(->
+      $(".render").html "ERRO na requisição!"
+    ).always(->
+    )
+  )
+
+@open_next= (marker) ->
+  $('.causa_proxima').click ->
+    id = $(this).attr('data-id')
+    $("#modal-css").html "Carregando..."
+    jqxhr = $.get("/show_causa/#{id}", (data) ->
+      $(".render").html("")
+      $(".render").html data
+
+      open_next(marker)
+    ).done(->
+    ).fail(->
+      $(".render").html "ERRO na requisição!"
+    ).always(->
+    )
+
+@recursive_category= (id) ->
+  for c in categories
+    if c.id == id
+      return c.icon.url
 
 @options_map = ->
   latlong = new google.maps.LatLng(-5.087242, -42.801805)
@@ -75,8 +145,6 @@ panorama = undefined
   infoWindow.setContent if browserHasGeolocation then 'Erro: O servico de Geolocation falhou.' else 'Erro: Seu navegador não tem suporte para geolocation.'
 
 jQuery ->
-  console.log categories
   $.get "/categories.json", {}, (date) ->
     for c in date
       categories.push c
-      console.log categories
