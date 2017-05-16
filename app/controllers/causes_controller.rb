@@ -4,7 +4,11 @@ class CausesController < ApplicationController
   # GET /causes
   # GET /causes.json
   def index
-    @causes = Cause.all
+    if params[:category] == '0'
+      @causes = Cause.all
+    else
+      @causes = Cause.where(category_id: params[:category])
+    end
 
   end
 

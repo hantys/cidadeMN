@@ -2,9 +2,14 @@
   <div class="well sidebar-nav">
     <h3>Buscar</h3>
     <ul class="nav nav-list">
-      <li><%= link_to "Link1", "/path1"  %></li>
-      <li><%= link_to "Link2", "/path2"  %></li>
-      <li><%= link_to "Link3", "/path3"  %></li>
+      <% Category.all.each do |category| -%>
+        <li class='category' onclick="filter_category(<%= category.id -%>)">
+          <%= image_tag category.icon.url -%>
+        </li>
+      <% end -%>
+      <li class='category' onclick="filter_category(0)">
+        <%= image_tag 'images.jpg' -%>
+      </li>
     </ul>
   </div><!--/.well -->
 </div><!--/span-->

@@ -13,9 +13,19 @@ panorama = undefined
 
   map = new google.maps.Map(document.getElementById("map"), myOptions)
   panorama = map.getStreetView()
-  infoWindow = new (google.maps.InfoWindow)(map: map)
+
   geolocation_service()
   povoa_categoria()
+
+@filter_category = (id) ->
+  remove_markes()
+  causaIds = []
+  select_cat = id
+  povoa_categoria()
+
+@remove_markes = () ->
+  for local in markers
+    local.setMap null
 
 @povoa_categoria = ->
   centro = map.getCenter()
@@ -126,23 +136,18 @@ panorama = undefined
   # Try HTML5 geolocation.
   if navigator.geolocation
     navigator.geolocation.getCurrentPosition ((position) ->
-      pos =
-        lat: position.coords.latitude
-        lng: position.coords.longitude
-      infoWindow.setPosition pos
-      infoWindow.setContent 'Você está aqui.'
-      map.setCenter pos
+      local = new google.maps.LatLng(parseFloat(position.coords.latitude), parseFloat(position.coords.longitude))
+      marker = placeMarker local
+      map.setCenter local
 
     ), ->
-      handleLocationError true, infoWindow, map.getCenter()
-
+      local = new google.maps.LatLng(parseFloat(-5.087242), parseFloat(-42.801805))
+      marker = placeMarker local
+      map.setCenter local
   else
-    # Browser doesn't support Geolocation
-    handleLocationError false, infoWindow, map.getCenter()
-
-@handleLocationError = (browserHasGeolocation, infoWindow, pos) ->
-  infoWindow.setPosition pos
-  infoWindow.setContent if browserHasGeolocation then 'Erro: O servico de Geolocation falhou.' else 'Erro: Seu navegador não tem suporte para geolocation.'
+    local = new google.maps.LatLng(parseFloat(-5.087242), parseFloat(-42.801805))
+    marker = placeMarker local
+    map.setCenter local
 
 jQuery ->
   $.get "/categories.json", {}, (date) ->
