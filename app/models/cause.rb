@@ -1,7 +1,8 @@
 class Cause < ApplicationRecord
-  validates_presence_of :text, :category_id, :latitude, :longitude
+  validates_presence_of :text, :category_id, :latitude, :longitude, :user_id
 
   reverse_geocoded_by :latitude, :longitude
+  after_validation :reverse_geocode  # auto-fetch address
 
   belongs_to :user
   belongs_to :category

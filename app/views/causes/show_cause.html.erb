@@ -1,11 +1,6 @@
 <%= image_tag @cause.category.icon.url -%>
 <h1><%= @cause.category.name -%> </h1>
 <p>
-  <b>User:</b>
-  <%= image_tag @cause.user.image_link, :class => 'thumbnail facebook_picture' %>
-  <%= @cause.user.name %>
-</p>
-<p>
   <b>Text:</b>
   <%= @cause.text %>
 </p>

@@ -29,7 +29,7 @@ panorama = undefined
 
 @povoa_categoria = ->
   centro = map.getCenter()
-  $.get "/causes.json", {lat: centro.lat(), lng: centro.lng(), category: select_cat}, (data) ->
+  $.get "/find_causes", {lat: centro.lat(), lng: centro.lng(), category: select_cat}, (data) ->
     i = -1
     $(data).each (index, causa) ->
       local = new google.maps.LatLng(parseFloat(causa.latitude), parseFloat(causa.longitude))

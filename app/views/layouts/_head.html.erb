@@ -8,8 +8,21 @@
     <%= link_to 'CidadeMN', root_url, class: "navbar-brand" %>
     <div class="navbar-collapse collapse navbar-responsive-collapse">
       <ul class="nav navbar-nav">
+        <li><%= link_to "Mapa", root_path  %></li>
         <li><%= link_to "Causas", causes_path  %></li>
-        <li><%= link_to "Categorias", categories_path  %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+
+          <%= drop_down "Minha Conta (#{current_user.name})" do %>
+            <li><%= link_to "Minhas Causas", my_causes_causes_path  %></li>
+            <li><%= link_to "Nova Causa", new_cause_path  %></li>
+            <%= menu_item 'Editar Perfil', edit_user_registration_path %>
+          <% end %>
+          <%= menu_item "<i class=\"fa fa-power-off\"></i> Sair".html_safe, destroy_user_session_path, :method => Devise.sign_out_via %>
+        <% else %>
+          <%= menu_item "<i class=\"fa fa-power-off\"></i> Entrar".html_safe, new_user_session_path %>
+        <% end %>
       </ul>
     </div>
   </div>

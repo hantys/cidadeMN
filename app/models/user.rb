@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :causes, :dependent => :destroy
+  validates_uniqueness_of :email
   def image_link
     return "user.png"
   end

@@ -7,8 +7,9 @@
     <title><%= content_for?(:title) ? yield(:title) : "CidadeMN" %></title>
     <%= csrf_meta_tags %>
 
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <%= stylesheet_link_tag "application", :media => "all" %>
-
     <!-- For third-generation iPad with high-resolution Retina display: -->
     <!-- Size should be 144 x 144 pixels -->
     <%#= favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
@@ -29,7 +30,6 @@
     <!-- Size should be 32 x 32 pixels -->
     <%#= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
 
-    <%= javascript_include_tag "application" %>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
@@ -55,5 +55,14 @@
 
     </div> <!-- /container -->
 
+    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyCC6lHFq6x9jHKrWeeQfoEE_ARoPEddmQM", async: :defer  if params[:controller] == 'causes' and (params[:action] == 'new' or params[:action] == 'edit')%>
+    <%= javascript_include_tag "new_cause", async: :defer if params[:controller] == 'causes' and (params[:action] == 'new' or params[:action] == 'edit') %>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </body>
 </html>
+<% if Rails.env.development? -%>
+  <hr>
+  <%= debug params %>
+<% end -%>

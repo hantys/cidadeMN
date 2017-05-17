@@ -1,24 +1,38 @@
 class CausesController < ApplicationController
-  before_action :set_cause, only: [:show, :show_cause, :edit, :update, :destroy]
-
+  before_action :set_cause, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:my_causes, :new, :edit, :create, :update, :destroy]
   # GET /causes
   # GET /causes.json
   def index
+    @causes = Cause.page(params[:page]).per(50)
+  end
+
+  def my_causes
+    @causes = current_user.causes.page(params[:page]).per(50)
+    render :index
+  end
+
+  def find_causes
     if params[:category] == '0'
       @causes = Cause.all
     else
       @causes = Cause.where(category_id: params[:category])
     end
 
+    respond_to do |format|
+      format.json { render json: @causes.as_json and return }
+    end
   end
 
   def show_cause
+    @cause = Cause.find(params[:id])
     render :layout => false and return
   end
 
   # GET /causes/1
   # GET /causes/1.json
   def show
+    @cause = Cause.find(params[:id])
   end
 
   # GET /causes/new
@@ -34,7 +48,7 @@ class CausesController < ApplicationController
   # POST /causes.json
   def create
     @cause = Cause.new(cause_params)
-
+    @cause.user_id = current_user.id
     respond_to do |format|
       if @cause.save
         format.html { redirect_to @cause, notice: 'Cause was successfully created.' }
@@ -73,11 +87,11 @@ class CausesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cause
-      @cause = Cause.find(params[:id])
+      @cause = current_user.causes.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cause_params
-      params.require(:cause).permit(:user_id, :text, :latitude, :longitude, :category_id, :support, :status, :start_date, :end_date, :address)
+      params.require(:cause).permit!
     end
 end
