@@ -13,7 +13,8 @@ panorama = undefined
 
   map = new google.maps.Map(document.getElementById("map"), myOptions)
   panorama = map.getStreetView()
-
+  google.maps.event.addListener map, "dblclick", (event) ->
+    window.location.href = '/causes/new'
   geolocation_service()
   povoa_categoria()
 
@@ -101,7 +102,7 @@ panorama = undefined
   latlong = new google.maps.LatLng(-5.087242, -42.801805)
   myOptions =
     zoom: 13
-    disableDoubleClickZoom: false
+    disableDoubleClickZoom: true
     zoomControl: true
     center: latlong
     mapTypeId: google.maps.MapTypeId.ROADMAP
