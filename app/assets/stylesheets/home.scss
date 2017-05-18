@@ -1,10 +1,86 @@
-.map-container {
-  width: auto !important;
-  .well {
-    height: 600px
+
+#map{
+  height: 600px;
+  width: 90%;
+  float: right;
+}
+
+
+.wrap {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.nav-filter {
+  z-index: 200;
+  position: relative;
+  width: 10%;
+  font-size: 1em;
+  float: left;
+}
+
+.nav-toggle {
+  display: none;
+}
+
+
+/*Media Queries*/
+@media only screen and (max-width: 1400px) {
+  .wrap {
+    max-width: 100%;
+    margin: 0;
   }
 
+  .nav-filter {
+    width: 110px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #9F9F9F;
+    height: 100%;
+    padding: 40px 0px 0px 3px;
+  }
+
+  .nav-toggle {
+    position: absolute;
+    top: 220px;
+    right: -91px;
+    color: #FFF;
+    cursor: pointer;
+    width: 151px;
+    height: 32px;
+    z-index: 1000;
+    display: block;
+    background: #444;
+    font-weight: bold;
+    padding: 7px 0px 0px 10px;
+    /* Safari */
+    -webkit-transform: rotate(90deg);
+
+    /* Firefox */
+    -moz-transform: rotate(90deg);
+
+    /* IE */
+    -ms-transform: rotate(90deg);
+
+    /* Opera */
+    -o-transform: rotate(90deg);
+
+    /* Internet Explorer */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+    -webkit-border-top-left-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    -moz-border-radius-topright: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+  }
   #map{
     height: 600px;
+    width: 100%;
+    position: relative;
+    float: none;
   }
 }

@@ -1,15 +1,14 @@
-<div class="col-lg-2">
-  <div class="well sidebar-nav">
-    <h3>Buscar</h3>
+<nav class="nav-filter nav-aberta">
+  <div class="wrap">
     <ul class="nav nav-list">
       <% Category.all.each do |category| -%>
-        <li class='category' onclick="filter_category(<%= category.id -%>)">
-          <%= image_tag category.icon.url -%>
-        </li>
+      <li class='category' onclick="filter_category(<%= category.id -%>)">
+        <%= image_tag category.icon.url, class: 'img-icon' -%>
+      </li>
       <% end -%>
       <li class='category' onclick="filter_category(0)">
-        <%= image_tag 'images.jpg' -%>
+        <%= image_tag 'images.jpg', class: 'img-reset' -%>
       </li>
     </ul>
-  </div><!--/.well -->
-</div><!--/span-->
+  </div>
+</nav>
