@@ -166,7 +166,7 @@ jQuery ->
         $('#arrow-menu').removeClass 'glyphicon glyphicon-triangle-bottom'
         $('#arrow-menu').addClass 'glyphicon glyphicon-triangle-top'
     else
-      $('.nav-filter').animate { left: '-95px' }, 100, ->
+      $('.nav-filter').animate { left: '-106px' }, 100, ->
         $('.nav-filter').addClass 'side-fechado'
         $('#arrow-menu').removeClass 'glyphicon glyphicon-triangle-top'
         $('#arrow-menu').addClass 'glyphicon glyphicon-triangle-bottom'
@@ -175,18 +175,18 @@ $(window).resize ->
   tamanhoJanela = $(window).width()
   $('.nav-toggle').remove()
   if tamanhoJanela < 1400
-    $('.nav-filter').css('left', '-95px').addClass 'side-fechado'
+    $('.nav-filter').css('left', '-106px').addClass 'side-fechado'
     $('.nav-filter').append '<div class=\'nav-toggle\'> <i id=\'arrow-menu\' class=\'glyphicon glyphicon-triangle-bottom\' ></i> Filtrar Categoria</div>'
   else
-    $('.nav-filter').css('left', '15px').addClass 'side-fechado'
+    $('.nav-filter').css('left', '0').addClass 'side-fechado'
   menu()
 $(document).ready ->
   tamanhoJanela = $(window).width()
   $('.nav-toggle').remove()
   if tamanhoJanela < 1400
-    $('.nav-filter').css('left', '-95px').addClass 'side-fechado'
+    $('.nav-filter').css('left', '-106px').addClass 'side-fechado'
     $('.nav-filter').append '<div class=\'nav-toggle\'> <i id=\'arrow-menu\' class=\'glyphicon glyphicon-triangle-bottom\' ></i> Filtrar Categoria</div>'
   else
-    $('.nav-filter').css('left', '15px').addClass 'side-fechado'
+    $('.nav-filter').css('left', '0').addClass 'side-fechado'
   menu()
 

@@ -1,5 +1,6 @@
 <nav class="nav-filter nav-aberta">
   <div class="wrap">
+    <legend>Categorias</legend>
     <ul class="nav nav-list">
       <% Category.all.each do |category| -%>
       <li class='category' onclick="filter_category(<%= category.id -%>)">

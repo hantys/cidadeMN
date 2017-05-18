@@ -1,6 +1,6 @@
 
 #map{
-  height: 600px;
+  height: 1000px;
   width: 90%;
   float: right;
 }
@@ -16,7 +16,18 @@
   position: relative;
   width: 10%;
   font-size: 1em;
+  min-height: 1000px;
   float: left;
+  top: 0;
+  left: 0;
+  border: solid 1px #D2D2D2;
+  background: #F5F5F5;
+  height: 100%;
+  padding: 28px 0px 0px 15px;
+
+  legend {
+    font-weight: bold;
+  }
 }
 
 .nav-toggle {
@@ -32,7 +43,7 @@
   }
 
   .nav-filter {
-    width: 110px;
+    width: 122px;
     position: absolute;
     top: 0;
     left: 0;
@@ -76,7 +87,11 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 
+    legend {
+      font-weight: bold;
+    }
   }
+
   #map{
     height: 600px;
     width: 100%;
