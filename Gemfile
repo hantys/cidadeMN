@@ -20,6 +20,10 @@ gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 
+gem 'mina', '0.3.8'
+gem 'mina-sidekiq', '0.4.1'
+gem 'mina-puma', '0.3.2', require: false
+
 gem 'coffee-rails', '~> 4.2'
 
 gem 'jbuilder', '~> 2.5'
