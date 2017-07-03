@@ -61,6 +61,19 @@ task :setup => :environment do
   end
 end
 
+desc "reset db"
+task :reset => :environment do
+  queue "cd #{fetch(:deploy_to)}/current"
+  queue "bundle exec rake db:reset RAILS_ENV=production"
+end
+
+desc "Seed data to the database"
+task :seed => :environment do
+  queue "cd #{fetch(:deploy_to)}/current"
+  queue "bundle exec rake db:seed RAILS_ENV=production"
+end
+
+
 desc "Deploys the current version to the server."
 task :deploy => :environment do
   to :before_hook do
