@@ -1,0 +1,39 @@
+pt-BR:
+  activerecord:
+    models:
+      category: 'Categoria'
+      cause: 'Produtos'
+      image: 'Imagem'
+      user: 'Usuário'
+    attributes:
+      image:
+        file: foto
+      category:
+        name: Nome
+
+      user:
+        store_name: 'Nome da Loja'
+        store_description: 'Descrição'
+        name: 'Nome completo'
+        email: 'Email'
+        gender: 'Sexo'
+        birthdate: 'Data de nascimento'
+        phone: 'Telefone'
+        cellphone: 'Celular'
+        password: 'Senha'
+        terms_of_use: aceitar termos
+        password_confirmation: 'Confirmação de Senha'
+        current_password: "Senha atual"
+        remember_me: "Lembrar-me"
+
+      cause:
+        user_id:
+        text: "Descrição"
+        latitude:
+        longitude:
+        category_id:
+        support: Apoio
+        status: Situação
+        start_date: Data de início
+        end_date: Data de finalização
+        address: Endereço
