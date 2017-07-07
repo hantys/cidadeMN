@@ -2,7 +2,7 @@ pt-BR:
   activerecord:
     models:
       category: 'Categoria'
-      cause: 'Produtos'
+      cause: 'Causa'
       image: 'Imagem'
       user: 'Usuário'
     attributes:
@@ -31,9 +31,10 @@ pt-BR:
         text: "Descrição"
         latitude:
         longitude:
-        category_id:
+        category_id: Categoria
         support: Apoio
         status: Situação
         start_date: Data de início
         end_date: Data de finalização
         address: Endereço
+        created_at: Criado em

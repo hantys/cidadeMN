@@ -51,7 +51,7 @@ class CausesController < ApplicationController
     @cause.user_id = current_user.id
     respond_to do |format|
       if @cause.save
-        format.html { redirect_to @cause, notice: 'Cause was successfully created.' }
+        format.html { redirect_to @cause, notice: 'Causa criada com sucesso.' }
         format.json { render :show, status: :created, location: @cause }
       else
         format.html { render :new }
@@ -65,7 +65,7 @@ class CausesController < ApplicationController
   def update
     respond_to do |format|
       if @cause.update(cause_params)
-        format.html { redirect_to @cause, notice: 'Cause was successfully updated.' }
+        format.html { redirect_to @cause, notice: 'Causa editada com sucesso.' }
         format.json { render :show, status: :ok, location: @cause }
       else
         format.html { render :edit }
@@ -79,7 +79,7 @@ class CausesController < ApplicationController
   def destroy
     @cause.destroy
     respond_to do |format|
-      format.html { redirect_to causes_url, notice: 'Cause was successfully destroyed.' }
+      format.html { redirect_to causes_url, notice: 'Causa deletada com sucesso.' }
       format.json { head :no_content }
     end
   end

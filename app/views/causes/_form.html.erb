@@ -2,7 +2,7 @@
   <%= f.error_notification %>
   <%= f.input :text, :as => :text, input_html: {rows: 5, style: 'width: 500px;'} %>
   <%= f.input :category_id, :as => :select, :collection => Category.order("name ASC").collect { |s| [s.name, s.id] }, :include_blank => "Selecione uma Categoria" %>
-  <%= f.input :address, :label => "Endereço" %>
+  <%#= f.input :address, :label => "Endereço" %>
   <hr>
   <%= f.fields_for :images do |foto_form| %>
         <% if foto_form.object.new_record? -%>
@@ -24,7 +24,7 @@
   <div id='#pano' style="width:800px; height:300px; margin-bottom:20px" ></div>
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+    <%= link_to 'Cancelar',
                 my_causes_causes_path, :class => 'btn' %>
   </div>
 <% end %>
