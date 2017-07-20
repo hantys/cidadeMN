@@ -5,7 +5,9 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <%= link_to 'CidadeMN', root_url, class: "navbar-brand" %>
+    <%= link_to root_url, class: "navbar-brand", style: 'width: 10%' do %>
+      <%= image_tag 'cidade.png', width: '100%' %>
+    <% end %>
     <div class="navbar-collapse collapse navbar-responsive-collapse">
       <ul class="nav navbar-nav">
         <li><%= link_to "Mapa", root_path  %></li>
